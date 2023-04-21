@@ -1,0 +1,58 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "(gdb) Launch",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${command:cmake.launchTargetPath}",
+      "args": [
+        "ServerConfig.ini"
+      ],
+      "stopAtEntry": false,
+      "cwd": "${workspaceFolder}",
+      "MIMode": "gdb",
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": false
+        },
+        {
+          "description": "Additional libs for gdb",
+          "text": "set solib-search-path sharedLibraryPath/lib"
+        }
+      ]
+    },
+    {
+      "name": "Launch Debugger with valgrind",
+      //"preLaunchTask": "valgrind-debug: custom",//Not worth it, Jus run it like this "valgrind --vgdb=yes --vgdb-error=0 /home/punal/Crossplatform_Screen_Capture/build/Debug/Linux/bin/Crossplatform_Screen_Capture"
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${command:cmake.launchTargetPath}",
+      "targetArchitecture": "x64",
+      //"args": [
+      //  "ServerConfig.ini"// Send Args using Valgrind
+      //],// Full Debug Args valgrind --vgdb=yes --vgdb-error=0 --leak-check=full --show-leak-kinds=all --track-origins=yes --verbose /home/punal/Wrexa_Repo/Crossplatform_Screen_Capture/build/Debug/Linux/bin/Crossplatform_Screen_Capture arg_1 arg_2 arg_3
+      "stopAtEntry": true,
+      "externalConsole": false,
+      "cwd": "${workspaceFolder}",
+      "MIMode": "gdb",
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": false
+        },
+        {
+          "description": "Connect to valgrind",
+          "text": "target remote | /usr/bin/vgdb --pid=10110", // Paste the pid From the Valgrind
+          "ignoreFailures": false
+        }
+      ]
+    }
+  ]
+}
