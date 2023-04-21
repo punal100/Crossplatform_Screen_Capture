@@ -45,6 +45,8 @@ CTestTestfile.cmake
 _deps
 
 # Folders
+/.vs
+/out
 /build
 /Others_Ignore
 

@@ -33,9 +33,9 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/${CMAKE_BUILD_TYPE}/${CMA
 # ########
 # GTest #
 # ########
-# enable_testing()
-add_subdirectory(libs/gtest-1.7.0)
-include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})
+#enable_testing()
+#add_subdirectory(libs/gtest-1.7.0)
+#include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})
 
 # ##########
 # Project #
